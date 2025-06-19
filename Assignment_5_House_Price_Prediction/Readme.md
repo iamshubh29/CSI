@@ -14,9 +14,6 @@ The goal of this project is to develop a **machine learning regression model** t
 | `train.csv` | Training dataset with features and `SalePrice` as target |
 | `test.csv` | Test dataset with features (no target) |
 | `house_price_predictions_rf.xlsx` | Test predictions using Random Forest |
-| `house_price_predictions_linreg.xlsx` | Test predictions using Linear Regression |
-| `house_price_predictions_ridge.xlsx` | Test predictions using Ridge Regression |
-| `house_price_predictions_lasso.xlsx` | Test predictions using Lasso Regression |  
 
 👉 **All prediction files are uploaded to Google Drive as part of this project.**  
 
