@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 
 # Load the model using pickle
-with open("Trained_model.sav", "rb") as file:
+with open("C:\Users\SHUBH\Downloads\Diabetes_Prediction_Project-main\Trained_model.sav", "rb") as file:
     model = pickle.load(file)
 
 st.title("Diabetes Prediction App")
