@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 # ✅ Load model from same folder
-with open("Trained_model.sav", "rb") as file:
+with open("Assignment_7/Trained_model.sav", "rb") as file:
     model = pickle.load(file)
 
 st.title("Diabetes Prediction App")
