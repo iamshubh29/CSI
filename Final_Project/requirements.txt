@@ -1,10 +1,16 @@
+# Core packages (tested with Python 3.10+ or 3.11)
 streamlit
-gensim==4.3.1
-nltk
-wordcloud
 pandas
 matplotlib
 seaborn
 scikit-learn
+nltk
+wordcloud
 openpyxl
+
+# Version-locked packages to avoid build errors
+gensim==4.3.1
 scipy==1.11.4
+
+# If deploying to Streamlit Cloud, limit Python version:
+python_version < 3.12
