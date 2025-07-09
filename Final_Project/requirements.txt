@@ -1,5 +1,4 @@
-# --- Streamlit + NLP project dependencies ---
-
+# ✅ Compatible, precompiled, stable versions
 streamlit
 pandas
 numpy
@@ -10,9 +9,6 @@ nltk
 wordcloud
 openpyxl
 
-# 👇 Compatible versions to avoid native build
+# 👇 Precompiled, don't require compiler
 gensim==4.3.1
 scipy==1.11.4
-
-# ✅ (optional) Pin Python version
-python_version < 3.12
