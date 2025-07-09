@@ -1,6 +1,8 @@
-# Core packages (tested with Python 3.10+ or 3.11)
+# --- Streamlit + NLP project dependencies ---
+
 streamlit
 pandas
+numpy
 matplotlib
 seaborn
 scikit-learn
@@ -8,9 +10,9 @@ nltk
 wordcloud
 openpyxl
 
-# Version-locked packages to avoid build errors
+# 👇 Compatible versions to avoid native build
 gensim==4.3.1
 scipy==1.11.4
 
-# If deploying to Streamlit Cloud, limit Python version:
+# ✅ (optional) Pin Python version
 python_version < 3.12
