@@ -67,15 +67,6 @@ Implemented and compared multiple clustering models:
   - Sample documents per topic shown
   - Upload feature for user files (CSV/TXT)
 
----
-
-## 🖼 Screenshots & Visualizations
-
-- ✅ PCA Scatter Plot for KMeans Clusters
-- ✅ WordClouds for LDA Topics
-- ✅ Top Keywords per Cluster/Topic
-- ✅ Silhouette Scores Displayed in Real-Time
-- ✅ Sample Documents Preview per Group
 
 
 ## 📂 Project Structure
