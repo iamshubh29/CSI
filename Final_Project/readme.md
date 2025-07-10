@@ -1,98 +1,138 @@
-# 🧠 Topic Modeling Web App with KMeans & LDA
+# 🧠 Topic Modeling and Document Clustering Web App using KMeans & LDA
 
-A Streamlit-powered web app to perform topic modeling and document clustering on large text corpora using **KMeans** and **Latent Dirichlet Allocation (LDA)**.
-
----
-
-## 📌 Features
-
-- ✅ Topic modeling using **LDA (Latent Dirichlet Allocation)**
-- ✅ Document clustering using **KMeans**
-- ✅ Interactive UI built with **Streamlit**
-- ✅ Visualizations using **WordClouds**, **PCA plots**, and **top keywords per topic**
-- ✅ Dynamic selection of number of clusters/topics
-- ✅ Document upload functionality for custom inputs
-- ✅ Option to view sample documents by cluster/topic
-- ✅ Model summary: vocab size, doc count, silhouette score
-- ✅ Fully deployed on **Replit** with public URL access
-
-
-## ⚙️ How It Works
-
-1. **Preprocessing**
-   - Text cleaning: lowercasing, punctuation removal, stopword removal, lemmatization
-
-2. **TF-IDF Vectorization**
-   - Converts text into a numerical format for clustering
-
-3. **KMeans**
-   - Groups documents into clusters using cosine similarity
-   - Visualized using **PCA 2D plots**
-
-4. **LDA (Topic Modeling)**
-   - Extracts hidden topics from text
-   - Visualized using **WordClouds** and top keywords
+This is a fully functional Streamlit web app for **unsupervised text clustering and topic modeling**, designed to help analyze and visualize large-scale document corpora using **KMeans** and **Latent Dirichlet Allocation (LDA)**. The project leverages the **20 Newsgroups** dataset to demonstrate both document clustering and latent topic extraction.
 
 ---
 
-## 🧪 Tech Stack
+## 📊 Project Objective
 
-- 🐍 Python
-- 📊 Scikit-learn
-- 🔍 Gensim
-- 📄 NLTK
-- 🎨 Matplotlib & Seaborn
----
-
-## 🧠 Sample Output
-
-- **Silhouette Score** shown for clustering quality
-- **WordClouds** per topic (LDA)
-- **Top keywords per cluster** (KMeans)
-- **PCA Visualization** of clusters
-- **Document previews** inside each cluster/topic
+The goal of this project is to:
+- Group similar documents into clusters using unsupervised algorithms
+- Identify hidden topics using LDA topic modeling
+- Visualize and interpret the results interactively
+- Allow users to upload custom text files for dynamic analysis
 
 ---
 
-## 📁 Folder Structure
+## ✅ What We Have Done
+
+### 🔹 1. Dataset Loading
+- Loaded the **20 Newsgroups dataset** directly from `scikit-learn.datasets`.
+- Limited to the first 2000 documents for performance.
+
+### 🔹 2. Text Preprocessing
+- Applied **text cleaning** including:
+  - Removal of special characters and punctuation
+  - Lowercasing
+  - Stopword removal using NLTK
+  - Lemmatization using `WordNetLemmatizer`
+
+### 🔹 3. TF-IDF Vectorization
+- Converted the cleaned documents into numerical vectors using `TfidfVectorizer`.
+- Limited to the top 2000 features for efficiency.
+
+### 🔹 4. Clustering Techniques
+Implemented and compared multiple clustering models:
+- **KMeans Clustering**
+  - Number of clusters adjustable using a slider
+  - Top keywords per cluster extracted from centroids
+  - Silhouette score computed
+- **Agglomerative Hierarchical Clustering** *(optional in notebook)*
+- **DBSCAN Clustering**
+  - With tuning of `eps` and `min_samples`
+  - Auto-detects outliers
+- **GMM (Gaussian Mixture Models)** *(explored for soft clustering)*
+
+### 🔹 5. Topic Modeling using LDA
+- Built an LDA model using **Gensim** and **Bag of Words** format.
+- Extracted top keywords per topic.
+- Visualized topics using **WordClouds**.
+
+### 🔹 6. Dimensionality Reduction and Visualization
+- Used **PCA** to project TF-IDF vectors into 2D for visualization.
+- Colored document points by cluster labels.
+
+### 🔹 7. Model Evaluation
+- Computed **Silhouette Scores** for:
+  - KMeans
+  - DBSCAN (if applicable)
+  - Agglomerative Clustering
+- Compared scores to determine best-performing clustering technique.
+
+### 🔹 8. Streamlit Web App Development
+- Built an interactive UI using **Streamlit** with:
+  - Sidebar model selector (`KMeans` or `LDA`)
+  - Cluster/topic number sliders
+  - Visuals: PCA plots, WordClouds, top terms
+  - Sample documents per topic shown
+  - Upload feature for user files (CSV/TXT)
+
+---
+
+## 🖼 Screenshots & Visualizations
+
+- ✅ PCA Scatter Plot for KMeans Clusters
+- ✅ WordClouds for LDA Topics
+- ✅ Top Keywords per Cluster/Topic
+- ✅ Silhouette Scores Displayed in Real-Time
+- ✅ Sample Documents Preview per Group
+
+
+## 📂 Project Structure
 
 ```
-streamlit-app/
+streamlit-topic-modeling/
 │
-├── app.py               # Main Streamlit app
-├── requirements.txt     # Python dependencies
-└── README.md            # You're reading it :)
+├── app.py               # Streamlit app source code
+├── requirements.txt     # All Python dependencies
+├── runtime.txt          # Python version pinning for compatibility
+└── README.md            # Project documentation (this file)
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## 🧠 Technologies Used
+
+| Component         | Library Used             |
+|------------------|--------------------------|
+| Web Framework     | Streamlit                |
+| NLP Preprocessing | NLTK                     |
+| Topic Modeling    | Gensim (LDA)             |
+| Clustering        | scikit-learn (KMeans, DBSCAN, Agglomerative) |
+| Vectorization     | TfidfVectorizer          |
+| Visualization     | Matplotlib, Seaborn, WordCloud, PCA |
+| Dataset           | 20 Newsgroups (Sklearn)  |
+
+---
+
+## ⚙️ Local Setup
+
+### 📦 1. Clone the Repository
 
 ```bash
-# Clone the project
-git clone https://github.com/your-username/topic-modeling-app.git
-cd topic-modeling-app
+git clone https://github.com/your-username/topic-modeling-streamlit.git
+cd topic-modeling-streamlit
+```
 
-# Create virtual environment
+### 🧪 2. Create Environment & Install Dependencies
+
+```bash
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-
-# Install dependencies
+source venv/bin/activate      # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
 
-# Run the app
+### ▶️ 3. Run Streamlit App
+
+```bash
 streamlit run app.py
 ```
 
 ---
 
+## 🌟 Acknowledgements
 
-3. Click ✅ **Run**, then **open the generated URL**
-
-
-
-## ⭐️ Acknowledgements
-
-- Dataset: [`20 Newsgroups`](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html)
-- Streamlit documentation
-- Gensim & NLTK for LDA modeling
+- [scikit-learn 20 Newsgroups dataset](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html)
+- [Streamlit](https://streamlit.io)
+- [Gensim](https://radimrehurek.com/gensim/)
+- [NLTK](https://www.nltk.org/)
